@@ -25,7 +25,12 @@ public class RamoAtividades implements Serializable {
 	public RamoAtividades(EntityManager manager) {
 		this.manager = manager;
 	}
-
+	
+	public RamoAtividade porId(Long id) {
+		return manager.find(RamoAtividade.class, id);
+		
+	}
+	
 	public List<RamoAtividade> pesquisar(String descricao) {
 		CriteriaBuilder criteriaBuilder = manager.getCriteriaBuilder();
 
@@ -37,5 +42,18 @@ public class RamoAtividades implements Serializable {
 		TypedQuery<RamoAtividade> query = manager.createQuery(criteriaQuery);
 		return query.getResultList();
 	}
-
+	
+	public List<RamoAtividade> todas(){
+		return manager.createQuery("from RamoAtividade", RamoAtividade.class).getResultList();
+	}
+	
+	public RamoAtividade guardar(RamoAtividade ramoAtividade) {
+		return manager.merge(ramoAtividade);
+	}
+	
+	
+	public void remover(RamoAtividade ramoAtividade) {
+		ramoAtividade = porId(ramoAtividade.getId());
+		manager.remove(ramoAtividade);
+	}
 }

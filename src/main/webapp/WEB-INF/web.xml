@@ -4,16 +4,22 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
 	version="3.1">
 	<display-name>jsfProject</display-name>
-	
+
 	<welcome-file-list>
 		<welcome-file>GestaoEmpresa.xhtml</welcome-file>
 	</welcome-file-list>
 
 	<context-param>
+		<param-name>primefaces.THEME</param-name>
+		<param-value>nova-light</param-value> <!-- Nome do tema escolhido -->
+	</context-param>
+
+
+	<context-param>
 		<param-name>primefaces.FONT_AWESOME</param-name>
 		<param-value>true</param-value>
 	</context-param>
-	
+
 	<context-param>
 		<param-name>javax.faces.PROJECT_STAGE</param-name>
 		<param-value>Development</param-value>

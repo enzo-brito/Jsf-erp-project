@@ -18,22 +18,22 @@
 							placeholder="Digite aqui para pesquisa..."
 							value="#{gestaoEmpresasBean.termoPesquisa}" />
 
-						<p:commandButton value="Pesquisar" icon="fa fa-search"
+						<p:commandButton value="Pesquisar" icon="pi pi-search"
 							actionListener="#{gestaoEmpresasBean.pesquisar}"
 							update="empresasDataTable messages" process="@this termoPesquisa" />
 
-						<span class="ui-icon ui-icon-grip-dotted-vertical"></span>
+						<i class="pi pi-ellipsis-v" style="font-size: 1.5rem;"></i>
 
-						<p:commandButton value="Nova" icon="fa fa-plus"
+						<p:commandButton value="Nova" icon="pi pi-plus"
 							actionListener="#{gestaoEmpresasBean.prepararNovaEmpresa}"
 							oncomplete="PF('empresaDialogVar').show()" update="empresaDialog"
 							process="@this">
 							<p:resetInput target="empresaDialog" />
 						</p:commandButton>
 
-						<span class="ui-icon ui-icon-grip-dotted-vertical"></span>
+						<i class="pi pi-ellipsis-v" style="font-size: 1.5rem;"></i>
 
-						<p:commandButton title="Editar" icon="fa fa-edit"
+						<p:commandButton title="Editar" icon="pi pi-pencil"
 							disabled="#{not gestaoEmpresasBean.empresaSelecionada}"
 							actionListener="#{gestaoEmpresasBean.prepararEdicao}"
 							oncomplete="PF('empresaDialogVar').show()"
@@ -42,7 +42,7 @@
 						</p:commandButton>
 
 
-						<p:commandButton value="Excluir" icon="fa fa-trash"
+						<p:commandButton value="Excluir" icon="pi pi-trash"
 							disabled="#{not gestaoEmpresasBean.empresaSelecionada}"
 							actionListener="#{gestaoEmpresasBean.excluir}"
 							update="messages empresasDataTable toolbar" process="@this">
@@ -51,13 +51,21 @@
 						</p:commandButton>
 
 
-						<span class="ui-icon ui-icon-grip-dotted-vertical"></span>
+						<i class="pi pi-ellipsis-v" style="font-size: 1.5rem;"></i>
 
 						<p:commandButton value="Exportar para o Excel"
 							icon="fa fa-file-excel-o" ajax="false" immediate="true">
 							<p:dataExporter type="xls" target="empresasDataTable"
 								fileName="Relatorio-Empresas" />
 						</p:commandButton>
+					</div>
+				</f:facet>
+
+				<f:facet name="right">
+					<div style="display: flex; align-items: center; gap: 10px;">
+						<p:commandButton value="Cadastro Ramo Atividade" action="GestaoRamoAtividade?faces-redirect=true"
+							icon="pi pi-briefcase" />
+
 					</div>
 				</f:facet>
 			</p:toolbar>
