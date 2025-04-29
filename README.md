@@ -2,7 +2,7 @@
 
 [![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow.svg)]()
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)]()
-[![Java](https://img.shields.io/badge/Java-11+-red.svg)]()
+[![Java](https://img.shields.io/badge/Java-8+-red.svg)]()
 [![JSF](https://img.shields.io/badge/JSF-PrimeFaces-blueviolet.svg)]()
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-14+-blue.svg)]()
 [![Maven](https://img.shields.io/badge/Maven-Dependências%20gerenciadas-orange.svg)]()
