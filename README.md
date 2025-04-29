@@ -68,11 +68,15 @@ Este projeto foi desenvolvido utilizando:
    git clone https://github.com/seuusuario/nome-do-repositorio.git
 2. Configure o persistence.xml com suas credenciais do banco PostgreSQL.
 
-3.Compile o projeto com Maven: mvn clean package
+3.Compile o projeto com Maven: 
+```bash
+mvn clean package
 
 4.Faça o deploy do arquivo .war no Apache Tomcat.
 
 5.Acesse no navegador:http://localhost:8080/nome-do-projeto
+
+
 📁 src/main/java
     ├── Controller
     ├── model
