@@ -1,10 +1,12 @@
+
+
 # 📊 Cadastro de Empresas
 
-[![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow.svg)]()
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)]()
-[![Java](https://img.shields.io/badge/Java-8+-red.svg)]()
-[![JSF](https://img.shields.io/badge/JSF-PrimeFaces-blueviolet.svg)]()
-[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-14+-blue.svg)]()
+[![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow.svg)]()  
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)]()  
+[![Java](https://img.shields.io/badge/Java-8+-red.svg)]()  
+[![JSF](https://img.shields.io/badge/JSF-PrimeFaces-blueviolet.svg)]()  
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-14+-blue.svg)]()  
 [![Maven](https://img.shields.io/badge/Maven-Dependências%20gerenciadas-orange.svg)]()
 
 > **Cadastro de Empresas** é uma aplicação web focada no gerenciamento de empresas e seus ramos de atividade. O sistema é robusto, seguro e pronto para expansão com novas funcionalidades 🚀.
@@ -17,17 +19,17 @@ Este projeto foi desenvolvido utilizando:
 
 - **Java Server Faces (JSF)** com **PrimeFaces** para criação de componentes ricos e responsivos.
 - **JPA (Java Persistence API)** para o gerenciamento de entidades e persistência de dados.
-- **CID (Context and Dependency Injection)** para uma melhor gestão de ciclos de vida e injeção de dependências.
+- **CDI (Context and Dependency Injection)** para gestão de ciclos de vida e injeção de dependências.
 - **PostgreSQL** como banco de dados relacional.
 - **Apache Tomcat** como servidor de aplicação.
 - **Maven** para gerenciamento de dependências e automação de builds.
 
-> **Destaques:**
-> - Feedback de operações com **FacesMessages**.
-> - Validações de campos e tratamentos de erros integrados.
-> - Exportação de dados para Excel.
-> - Pesquisa dinâmica e autocomplete em campos relacionados.
-> - Layout limpo e usabilidade fluída com PrimeFaces.
+**Principais recursos:**
+- Feedback visual com **FacesMessages**.
+- Validação de campos e tratamento de erros.
+- Exportação de dados para **Excel**.
+- Pesquisa dinâmica e autocomplete.
+- Layout moderno e responsivo com PrimeFaces.
 
 ---
 
@@ -37,18 +39,20 @@ Este projeto foi desenvolvido utilizando:
 - 🏢 Cadastro e gerenciamento de ramos de atividade.
 - 🔍 Pesquisa dinâmica de registros.
 - 📂 Exportação dos dados listados para **Excel**.
-- ✅ Validação de dados com feedback visual.
-- ⚙️ Tratamento de erros robusto com mensagens amigáveis ao usuário.
+- ✅ Validação de dados com mensagens visuais.
+- ⚙️ Tratamento de erros robusto e amigável.
 
 ---
 
-## 🔧 Tecnologias
+## 🔧 Tecnologias utilizadas
 
-- **Backend:** Java, JSF, PrimeFaces, JPA, CDI
-- **Frontend:** XHTML, PrimeFaces
-- **Banco de Dados:** PostgreSQL
-- **Servidor de Aplicação:** Apache Tomcat
-- **Build e Dependências:** Maven
+| Camada            | Tecnologia                  |
+|-------------------|------------------------------|
+| Backend           | Java, JSF, PrimeFaces, JPA, CDI |
+| Frontend          | XHTML, PrimeFaces            |
+| Banco de Dados    | PostgreSQL                   |
+| Servidor          | Apache Tomcat                |
+| Build             | Maven                        |
 
 ---
 
@@ -56,34 +60,45 @@ Este projeto foi desenvolvido utilizando:
 
 ### Pré-requisitos
 
-- Java 11 ou superior
-- Maven 3.x
-- PostgreSQL
-- Apache Tomcat 9 ou superior
+| Ferramenta     | Versão Recomendada |
+|----------------|--------------------|
+| Java           | 8+                 |
+| Maven          | 2.x                 |
+| PostgreSQL     | 14+                 |
+| Apache Tomcat  | 9+                  |
 
-### Passos para execução
+### Passos
 
 1. Clone o repositório:
    ```bash
    git clone https://github.com/seuusuario/nome-do-repositorio.git
-2. Configure o persistence.xml com suas credenciais do banco PostgreSQL.
+   ```
 
-3.Compile o projeto com Maven: 
-`mvn clean package
-`
-4.Faça o deploy do arquivo .war no Apache Tomcat.
+2. Configure o `persistence.xml` com suas credenciais do banco PostgreSQL.
 
-5.Acesse no navegador:http://localhost:8080/nome-do-projeto
+3. Compile o projeto com Maven:
+   ```bash
+   mvn clean package
+   ```
 
+4. Faça o deploy do arquivo `.war` no Apache Tomcat.
 
+5. Acesse a aplicação:
+   ```
+   http://localhost:8080/nome-do-projeto
+   ```
+
+### Estrutura do Projeto
+
+```
 📁 src/main/java
-    ├── Controller
+    ├── controller
     ├── model
     ├── repository
     ├── service
     └── util
 📁 src/main/resources
-    ├── META-INF
+    └── META-INF
         └── persistence.xml
 📁 src/main/webapp
     ├── WEB-INF
@@ -93,31 +108,43 @@ Este projeto foi desenvolvido utilizando:
         ├── GestaoEmpresa.xhtml
         └── GestaoRamoAtividade.xhtml
 📄 pom.xml
+```
 
-📈 Em Desenvolvimento / Futuras Implementações
-🛠️ Dashboard com gráficos e KPIs
+---
 
-🔍 Filtros avançados de pesquisa
+## 📈 Em Desenvolvimento / Futuras Implementações
 
-👥 Gestão de usuários e permissões
+- [ ] 🛠️ Dashboard com gráficos e KPIs
+- [ ] 🔍 Filtros avançados de pesquisa
+- [ ] 👥 Gestão de usuários e permissões
+- [ ] 📄 Relatórios em PDF e outros formatos
+- [ ] 🔗 Integração com APIs externas
+- [ ] 📊 Otimizações de performance para grandes volumes de dados
+- [ ] 🌐 Responsividade para dispositivos móveis/tablets
 
-📄 Relatórios em PDF e outros formatos
+---
 
-🔗 Integração com APIs externas
+## 🧑‍💻 Contribuições
 
-📊 Melhorias de performance no carregamento de grandes volumes de dados
+Contribuições são muito bem-vindas!  
+Sinta-se à vontade para abrir uma [issue](https://github.com/seuusuario/nome-do-repositorio/issues) ou enviar um [pull request](https://github.com/seuusuario/nome-do-repositorio/pulls).
 
-🌐 Responsividade e adaptação para mobile/tablet
+---
 
-🧑‍💻 Contribuições
-Contribuições são muito bem-vindas! Fique à vontade para abrir issues ou enviar pull requests.
+## 📜 Licença
 
-📜 Licença
-Distribuído sob a licença MIT.
+Distribuído sob a licença **MIT**.  
+
+---
 
 ## 📫 Contato
 
-- [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?logo=linkedin&style=for-the-badge)](https://www.linkedin.com/in/enzo-brito-b85471284)
-- [![Gmail](https://img.shields.io/badge/Email-Contact-red?logo=gmail&style=for-the-badge)](mailto:enzoj820@gmail.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?logo=linkedin&style=for-the-badge)](https://www.linkedin.com/in/enzo-brito-b85471284)  
+[![Gmail](https://img.shields.io/badge/Email-Contact-red?logo=gmail&style=for-the-badge)](mailto:enzoj820@gmail.com)
+
+---
 
 Feito com ❤️ e muito café!
+
+---
+
