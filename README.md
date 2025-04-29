@@ -127,7 +127,7 @@ Este projeto foi desenvolvido utilizando:
 ## 🧑‍💻 Contribuições
 
 Contribuições são muito bem-vindas!  
-Sinta-se à vontade para abrir uma [issue](https://github.com/seuusuario/nome-do-repositorio/issues) ou enviar um [pull request](https://github.com/seuusuario/nome-do-repositorio/pulls).
+Sinta-se à vontade para abrir uma [issue](https://github.com/enzo-brito/jsf-erp-project/issues) ou enviar um [pull request](https://github.com/enzo-brito/jsf-erp-project/pulls).
 
 ---
 
