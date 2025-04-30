@@ -1,5 +1,4 @@
 
-
 # 📊 Cadastro de Empresas
 
 [![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow.svg)]()  
@@ -30,6 +29,7 @@ Este projeto foi desenvolvido utilizando:
 - Exportação de dados para **Excel**.
 - Pesquisa dinâmica e autocomplete.
 - Layout moderno e responsivo com PrimeFaces.
+- 📈 **Dashboard com gráficos dinâmicos (Pizza e Barras)** para visualização estatística.
 
 ---
 
@@ -37,6 +37,7 @@ Este projeto foi desenvolvido utilizando:
 
 - 📋 Cadastro, edição, exclusão e listagem de empresas.
 - 🏢 Cadastro e gerenciamento de ramos de atividade.
+- 📊 Visualização de empresas por tipo e por ramo de atividade com gráficos interativos.
 - 🔍 Pesquisa dinâmica de registros.
 - 📂 Exportação dos dados listados para **Excel**.
 - ✅ Validação de dados com mensagens visuais.
@@ -46,13 +47,13 @@ Este projeto foi desenvolvido utilizando:
 
 ## 🔧 Tecnologias utilizadas
 
-| Camada            | Tecnologia                  |
-|-------------------|------------------------------|
-| Backend           | Java, JSF, PrimeFaces, JPA, CDI |
-| Frontend          | XHTML, PrimeFaces            |
-| Banco de Dados    | PostgreSQL                   |
-| Servidor          | Apache Tomcat                |
-| Build             | Maven                        |
+| Camada            | Tecnologia                        |
+|-------------------|------------------------------------|
+| Backend           | Java, JSF, PrimeFaces, JPA, CDI   |
+| Frontend          | XHTML, PrimeFaces                 |
+| Banco de Dados    | PostgreSQL                        |
+| Servidor          | Apache Tomcat                     |
+| Build             | Maven                             |
 
 ---
 
@@ -63,9 +64,9 @@ Este projeto foi desenvolvido utilizando:
 | Ferramenta     | Versão Recomendada |
 |----------------|--------------------|
 | Java           | 8+                 |
-| Maven          | 2.x                 |
-| PostgreSQL     | 14+                 |
-| Apache Tomcat  | 9+                  |
+| Maven          | 2.x                |
+| PostgreSQL     | 14+                |
+| Apache Tomcat  | 9+                 |
 
 ### Passos
 
@@ -106,7 +107,8 @@ Este projeto foi desenvolvido utilizando:
         └── faces-config.xml
     ├── pages
         ├── GestaoEmpresa.xhtml
-        └── GestaoRamoAtividade.xhtml
+        ├── GestaoRamoAtividade.xhtml
+        └── Dashboard.xhtml
 📄 pom.xml
 ```
 
@@ -114,7 +116,7 @@ Este projeto foi desenvolvido utilizando:
 
 ## 📈 Em Desenvolvimento / Futuras Implementações
 
-- [ ] 🛠️ Dashboard com gráficos e KPIs
+- [x] 📊 Dashboard com gráficos e KPIs
 - [ ] 🔍 Filtros avançados de pesquisa
 - [ ] 👥 Gestão de usuários e permissões
 - [ ] 📄 Relatórios em PDF e outros formatos
@@ -145,6 +147,3 @@ Distribuído sob a licença **MIT**.
 ---
 
 Feito com ❤️ e muito café!
-
----
-
