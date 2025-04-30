@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
 import com.projetoJsf.erp.model.Empresa;
+import com.projetoJsf.erp.model.TipoEmpresa;
 
 public class Empresas implements Serializable {
 
@@ -38,6 +39,18 @@ public class Empresas implements Serializable {
 		 return manager.createQuery("from Empresa", Empresa.class).getResultList();
 	}
 	
+	public long totalPorTipo(TipoEmpresa tipo) {
+	    String jpql = "select count(e) from Empresa e where e.tipo = :tipo";
+	    return manager.createQuery(jpql, Long.class)
+	            .setParameter("tipo", tipo)
+	            .getSingleResult();
+	}
+
+	public List<Object[]> totalPorRamo() {
+	    String jpql = "select e.ramoAtividade.descricao, count(e) from Empresa e group by e.ramoAtividade.descricao";
+	    return manager.createQuery(jpql, Object[].class).getResultList();
+	}
+
 	public Empresa guardar(Empresa empresa) {
 		return manager.merge(empresa);
 	}

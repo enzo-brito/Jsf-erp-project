@@ -63,9 +63,12 @@
 
 				<f:facet name="right">
 					<div style="display: flex; align-items: center; gap: 10px;">
-						<p:commandButton value="Cadastro Ramo Atividade" action="GestaoRamoAtividade?faces-redirect=true"
+						<p:commandButton value="Cadastro Ramo Atividade"
+							action="GestaoRamoAtividade?faces-redirect=true"
 							icon="pi pi-briefcase" />
-
+						<p:commandButton value="Dashboards"
+							action="Dashboards?faces-redirect=true"
+							icon="pi pi-th-large"/>
 					</div>
 				</f:facet>
 			</p:toolbar>
@@ -75,7 +78,7 @@
 			<p:dataTable id="empresasDataTable"
 				value="#{gestaoEmpresasBean.listaEmpresas}" var="empresa"
 				emptyMessage="Nenhuma informação a ser exibida" paginator="true"
-				rows="10" paginatorPosition="bottom" selectionMode="single"
+				rows="9" paginatorPosition="bottom" selectionMode="single"
 				selection="#{gestaoEmpresasBean.empresa}" rowKey="#{empresa.id}">
 
 				<p:ajax event="rowSelect" update="frm:toolbar" />
