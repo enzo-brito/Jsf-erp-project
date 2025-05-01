@@ -3,6 +3,7 @@ package com.projetoJsf.erp.repository;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -10,6 +11,7 @@ import javax.persistence.TypedQuery;
 import com.projetoJsf.erp.model.Empresa;
 import com.projetoJsf.erp.model.TipoEmpresa;
 
+@ApplicationScoped
 public class Empresas implements Serializable {
 
 	private static final long serialVersionUID = 1L;

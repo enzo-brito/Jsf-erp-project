@@ -22,6 +22,8 @@ import javax.validation.constraints.Past;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.br.CNPJ;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name = "empresa")
 public class Empresa implements Serializable {
@@ -44,6 +46,7 @@ public class Empresa implements Serializable {
 	@Column(nullable = false, length = 18)
 	private String cnpj;
 
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	@NotNull
 	@Past
 	@Temporal(TemporalType.DATE)
