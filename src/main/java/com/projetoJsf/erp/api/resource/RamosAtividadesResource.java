@@ -17,6 +17,7 @@ import javax.ws.rs.core.Response;
 
 import com.projetoJsf.erp.model.RamoAtividade;
 import com.projetoJsf.erp.repository.RamoAtividades;
+import com.projetoJsf.erp.service.CadastroRamoAtividadeService;
 import com.projetoJsf.erp.util.Transacional;
 
 @Path("/ramoatividades")
@@ -24,59 +25,61 @@ import com.projetoJsf.erp.util.Transacional;
 @Consumes(MediaType.APPLICATION_JSON)
 public class RamosAtividadesResource {
 
-    @Inject
-    private RamoAtividades ramoAtividades;
+	@Inject
+	private RamoAtividades ramoAtividades;
 
-    @GET
-    public List<RamoAtividade> todas() {
-        return ramoAtividades.todas();
-    }
+	@Inject
+	private CadastroRamoAtividadeService cadastroRamoAtividadeService;
 
-    @GET
-    @Path("/{id}")
-    public Response porId(@PathParam("id") Long id) {
-        RamoAtividade ramo = ramoAtividades.porId(id);
-        if (ramo != null) {
-            return Response.ok(ramo).build();
-        }
-        return Response.status(Response.Status.NOT_FOUND).build();
-    }
+	@GET
+	public List<RamoAtividade> todas() {
+		return ramoAtividades.todas();
+	}
 
-    @GET
-    @Path("/pesquisar")
-    public List<RamoAtividade> pesquisar(@QueryParam("descricao") String descricao) {
-        return ramoAtividades.pesquisar(descricao);
-    }
+	@GET
+	@Path("/{id}")
+	public Response porId(@PathParam("id") Long id) {
+		RamoAtividade ramo = ramoAtividades.porId(id);
+		if (ramo != null) {
+			return Response.ok(ramo).build();
+		}
+		return Response.status(Response.Status.NOT_FOUND).build();
+	}
 
-    @Transacional
-    @POST
-    public Response criar(RamoAtividade ramoAtividade) {
-        RamoAtividade salvo = ramoAtividades.guardar(ramoAtividade);
-        return Response.status(Response.Status.CREATED).entity(salvo).build();
-    }
+	@GET
+	@Path("/pesquisar")
+	public List<RamoAtividade> pesquisar(@QueryParam("descricao") String descricao) {
+		return ramoAtividades.pesquisar(descricao);
+	}
 
-    @Transacional
-    @PUT
-    @Path("/{id}")
-    public Response atualizar(@PathParam("id") Long id, RamoAtividade ramoAtividade) {
-        RamoAtividade existente = ramoAtividades.porId(id);
-        if (existente == null) {
-            return Response.status(Response.Status.NOT_FOUND).build();
-        }
-        ramoAtividade.setId(id);
-        RamoAtividade atualizado = ramoAtividades.guardar(ramoAtividade);
-        return Response.ok(atualizado).build();
-    }
+	@POST
+	public Response criar(RamoAtividade ramoAtividade) {
+		cadastroRamoAtividadeService.Salvar(ramoAtividade);
+		return Response.status(Response.Status.CREATED).build();
+	}
 
-    @Transacional
-    @DELETE
-    @Path("/{id}")
-    public Response excluir(@PathParam("id") Long id) {
-        RamoAtividade existente = ramoAtividades.porId(id);
-        if (existente == null) {
-            return Response.status(Response.Status.NOT_FOUND).build();
-        }
-        ramoAtividades.remover(existente);
-        return Response.noContent().build();
-    }
+	@Transacional
+	@PUT
+	@Path("/{id}")
+	public Response atualizar(@PathParam("id") Long id, RamoAtividade ramoAtividade) {
+		RamoAtividade existente = ramoAtividades.porId(id);
+		if (existente == null) {
+			return Response.status(Response.Status.NOT_FOUND).build();
+		}
+		ramoAtividade.setId(id);
+		cadastroRamoAtividadeService.Salvar(ramoAtividade);
+		return Response.ok().build();
+	}
+
+	@Transacional
+	@DELETE
+	@Path("/{id}")
+	public Response excluir(@PathParam("id") Long id) {
+		RamoAtividade existente = ramoAtividades.porId(id);
+		if (existente == null) {
+			return Response.status(Response.Status.NOT_FOUND).build();
+		}
+		cadastroRamoAtividadeService.Excluir(existente);
+		return Response.noContent().build();
+	}
 }

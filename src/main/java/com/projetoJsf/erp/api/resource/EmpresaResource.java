@@ -18,7 +18,7 @@ import javax.ws.rs.core.Response;
 import com.projetoJsf.erp.model.Empresa;
 import com.projetoJsf.erp.model.TipoEmpresa;
 import com.projetoJsf.erp.repository.Empresas;
-import com.projetoJsf.erp.util.Transacional;
+import com.projetoJsf.erp.service.CadastroEmpresaService;
 
 @Path("/empresas")
 @Produces(MediaType.APPLICATION_JSON)
@@ -27,6 +27,9 @@ public class EmpresaResource {
 
     @Inject
     private Empresas empresas;
+    
+    @Inject
+    private CadastroEmpresaService cadastroEmpresaService;
 
     @GET
     public List<Empresa> todas() {
@@ -50,14 +53,13 @@ public class EmpresaResource {
         }
     }
 
-    @Transacional
+    
     @POST
     public Response criar(Empresa empresa) {
-        Empresa nova = empresas.guardar(empresa);
-        return Response.status(Response.Status.CREATED).entity(nova).build();
+        cadastroEmpresaService.salvar(empresa);
+        return Response.status(Response.Status.CREATED).build();
     }
     
-    @Transacional
     @PUT
     @Path("/{id}")
     public Response atualizar(@PathParam("id") Long id, Empresa empresa) {
@@ -66,11 +68,10 @@ public class EmpresaResource {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
         empresa.setId(id);
-        Empresa atualizada = empresas.guardar(empresa);
-        return Response.ok(atualizada).build();
+        cadastroEmpresaService.salvar(empresa);
+        return Response.ok().build();
     }
     
-    @Transacional
     @DELETE
     @Path("/{id}")
     public Response excluir(@PathParam("id") Long id) {
@@ -78,7 +79,7 @@ public class EmpresaResource {
         if (empresa == null) {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
-        empresas.remover(empresa);
+        cadastroEmpresaService.Excluir(empresa);
         return Response.noContent().build();
     }
 
