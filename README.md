@@ -1,6 +1,4 @@
-Claro! Aqui está a versão atualizada e completa do seu `README.md`, com a seção da **API RESTful** totalmente integrada:
 
----
 
 # 📊 Cadastro de Empresas
 
