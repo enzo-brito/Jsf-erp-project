@@ -1,3 +1,6 @@
+Claro! Aqui está a versão atualizada e completa do seu `README.md`, com a seção da **API RESTful** totalmente integrada:
+
+---
 
 # 📊 Cadastro de Empresas
 
@@ -21,6 +24,7 @@ Este projeto foi desenvolvido utilizando:
 - **CDI (Context and Dependency Injection)** para gestão de ciclos de vida e injeção de dependências.
 - **PostgreSQL** como banco de dados relacional.
 - **Apache Tomcat** como servidor de aplicação.
+- **Jersey (JAX-RS)** para implementação da API RESTful.
 - **Maven** para gerenciamento de dependências e automação de builds.
 
 **Principais recursos:**
@@ -30,6 +34,7 @@ Este projeto foi desenvolvido utilizando:
 - Pesquisa dinâmica e autocomplete.
 - Layout moderno e responsivo com PrimeFaces.
 - 📈 **Dashboard com gráficos dinâmicos (Pizza e Barras)** para visualização estatística.
+- 🌐 **API RESTful** para integração com sistemas externos.
 
 ---
 
@@ -42,18 +47,55 @@ Este projeto foi desenvolvido utilizando:
 - 📂 Exportação dos dados listados para **Excel**.
 - ✅ Validação de dados com mensagens visuais.
 - ⚙️ Tratamento de erros robusto e amigável.
+- 🌐 Consumo e fornecimento de dados via API RESTful.
+
+---
+
+## 🌐 API RESTful
+
+A aplicação fornece uma **API RESTful** construída com **Jersey (JAX-RS)** para permitir integrações e manipulação programática dos dados.
+
+### 🔗 Endpoints disponíveis
+
+#### 📁 Empresas
+
+| Método | Endpoint | Descrição |
+|--------|----------|-----------|
+| GET    | `/api/empresas/` | Lista todas as empresas |
+| GET    | `/api/empresas/{id}` | Retorna uma empresa específica pelo ID |
+| GET    | `/api/empresas/pesquisar?nome=nome` | Pesquisa empresas por nome |
+| POST   | `/api/empresas/` | Cria uma nova empresa |
+| PUT    | `/api/empresas/{id}` | Atualiza uma empresa existente |
+| DELETE | `/api/empresas/{id}` | Remove uma empresa pelo ID |
+| GET    | `/api/empresas/total-por-tipo?tipo=tipo` | Retorna o total de empresas por tipo |
+| GET    | `/api/empresas/total-por-ramo` | Retorna o total de empresas por ramo de atividade |
+
+#### 🏭 Ramos de Atividade
+
+| Método | Endpoint | Descrição |
+|--------|----------|-----------|
+| GET    | `/api/ramoatividades` | Lista todos os ramos de atividade |
+| GET    | `/api/ramoatividades/{id}` | Retorna um ramo de atividade pelo ID |
+| GET    | `/api/ramoatividades/pesquisar?descricao=descicao` | Pesquisa ramos por descrição |
+| POST   | `/api/ramoatividades/` | Cria um novo ramo de atividade |
+| PUT    | `/api/ramoatividades/{id}` | Atualiza um ramo existente |
+| DELETE | `/api/ramoatividades/{id}` | Remove um ramo de atividade |
+
+> 🧪 A API pode ser testada via ferramentas como **Postman** ou **Insomnia**.
+> 🔐 Obs.: A autenticação e segurança dos endpoints serão  implementadas posteriormente com JWT ou outra estratégia de segurança.
+
 
 ---
 
 ## 🔧 Tecnologias utilizadas
 
-| Camada            | Tecnologia                        |
-|-------------------|------------------------------------|
-| Backend           | Java, JSF, PrimeFaces, JPA, CDI   |
-| Frontend          | XHTML, PrimeFaces                 |
-| Banco de Dados    | PostgreSQL                        |
-| Servidor          | Apache Tomcat                     |
-| Build             | Maven                             |
+| Camada            | Tecnologia                                  |
+|-------------------|----------------------------------------------|
+| Backend           | Java, JSF, PrimeFaces, JPA, CDI WELD, Jersey     |
+| Frontend          | XHTML, PrimeFaces                           |
+| Banco de Dados    | PostgreSQL                                  |
+| Servidor          | Apache Tomcat                               |
+| Build             | Maven                                       |
 
 ---
 
@@ -84,9 +126,14 @@ Este projeto foi desenvolvido utilizando:
 
 4. Faça o deploy do arquivo `.war` no Apache Tomcat.
 
-5. Acesse a aplicação:
+5. Acesse a aplicação web:
    ```
-   http://localhost:8080/nome-do-projeto
+   http://localhost:8080/jsfProject
+   ```
+
+6. Teste a API (exemplo):
+   ```
+   GET http://localhost:8080/jsfProject/api/empresas/
    ```
 
 ### Estrutura do Projeto
@@ -97,6 +144,7 @@ Este projeto foi desenvolvido utilizando:
     ├── model
     ├── repository
     ├── service
+    ├── rest        ← Endpoints REST (JAX-RS)
     └── util
 📁 src/main/resources
     └── META-INF
@@ -117,10 +165,10 @@ Este projeto foi desenvolvido utilizando:
 ## 📈 Em Desenvolvimento / Futuras Implementações
 
 - [x] 📊 Dashboard com gráficos e KPIs
+- [x] 🌐 API RESTful com Jersey e JAX-RS
 - [ ] 🔍 Filtros avançados de pesquisa
 - [ ] 👥 Gestão de usuários e permissões
 - [ ] 📄 Relatórios em PDF e outros formatos
-- [ ] 🔗 Integração com APIs externas
 - [ ] 📊 Otimizações de performance para grandes volumes de dados
 - [ ] 🌐 Responsividade para dispositivos móveis/tablets
 
