@@ -58,7 +58,7 @@ public class RamosAtividadesResource {
 		return Response.status(Response.Status.CREATED).build();
 	}
 
-	@Transacional
+	
 	@PUT
 	@Path("/{id}")
 	public Response atualizar(@PathParam("id") Long id, RamoAtividade ramoAtividade) {
@@ -71,7 +71,7 @@ public class RamosAtividadesResource {
 		return Response.ok().build();
 	}
 
-	@Transacional
+	
 	@DELETE
 	@Path("/{id}")
 	public Response excluir(@PathParam("id") Long id) {

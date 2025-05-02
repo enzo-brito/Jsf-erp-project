@@ -31,7 +31,7 @@ public class LoginBean implements Serializable {
 		Usuario user = usuarioRepository.porEmail(email);
 		if (user != null && BCrypt.checkpw(senha, user.getSenhaHash())) {
 			usuarioLogado = user;
-			return "home?faces-redirect=true";
+			return "GestaoEmpresa?faces-redirect=true";
 		}
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Credenciais inválidas"));
 		return null;
