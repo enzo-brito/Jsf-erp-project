@@ -1,5 +1,4 @@
 
-
 # 📊 Cadastro de Empresas
 
 [![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow.svg)]()  
@@ -24,6 +23,7 @@ Este projeto foi desenvolvido utilizando:
 - **Apache Tomcat** como servidor de aplicação.
 - **Jersey (JAX-RS)** para implementação da API RESTful.
 - **Maven** para gerenciamento de dependências e automação de builds.
+- **JWT (JSON Web Token)** para autenticação segura dos usuários.
 
 **Principais recursos:**
 - Feedback visual com **FacesMessages**.
@@ -32,7 +32,7 @@ Este projeto foi desenvolvido utilizando:
 - Pesquisa dinâmica e autocomplete.
 - Layout moderno e responsivo com PrimeFaces.
 - 📈 **Dashboard com gráficos dinâmicos (Pizza e Barras)** para visualização estatística.
-- 🌐 **API RESTful** para integração com sistemas externos.
+- 🌐 **API RESTful com autenticação JWT** para integração com sistemas externos.
 
 ---
 
@@ -40,18 +40,54 @@ Este projeto foi desenvolvido utilizando:
 
 - 📋 Cadastro, edição, exclusão e listagem de empresas.
 - 🏢 Cadastro e gerenciamento de ramos de atividade.
+- 👥 Cadastro e autenticação de usuários com JWT.
 - 📊 Visualização de empresas por tipo e por ramo de atividade com gráficos interativos.
 - 🔍 Pesquisa dinâmica de registros.
 - 📂 Exportação dos dados listados para **Excel**.
 - ✅ Validação de dados com mensagens visuais.
 - ⚙️ Tratamento de erros robusto e amigável.
-- 🌐 Consumo e fornecimento de dados via API RESTful.
+- 🌐 Consumo e fornecimento de dados via API RESTful segura.
 
 ---
 
 ## 🌐 API RESTful
 
-A aplicação fornece uma **API RESTful** construída com **Jersey (JAX-RS)** para permitir integrações e manipulação programática dos dados.
+A aplicação fornece uma **API RESTful** construída com **Jersey (JAX-RS)** e protegida com **JWT**, permitindo integrações seguras e eficazes.
+
+### 🔐 Autenticação com JWT
+
+Antes de acessar os endpoints protegidos, é necessário autenticar-se e obter um token JWT.
+
+#### 🔸 Cadastro de Usuário
+
+- **POST** `/api/usuarios/registrar`  
+- Exemplo de requisição:
+```json
+{
+  "nome": "João da Silva",
+  "email": "joao@email.com",
+  "senhaHash": "123456"
+}
+```
+
+#### 🔸 Login de Usuário
+
+- **POST** `/api/usuarios/login`  
+- Exemplo de requisição:
+```json
+{
+  "usuario": "joao@email.com",
+  "senha": "123456"
+}
+```
+
+- Se autenticado com sucesso, um **token JWT** será retornado. Utilize-o no cabeçalho das requisições subsequentes:
+
+```
+Authorization: Bearer <seu_token_jwt>
+```
+
+---
 
 ### 🔗 Endpoints disponíveis
 
@@ -74,14 +110,13 @@ A aplicação fornece uma **API RESTful** construída com **Jersey (JAX-RS)** pa
 |--------|----------|-----------|
 | GET    | `/api/ramoatividades` | Lista todos os ramos de atividade |
 | GET    | `/api/ramoatividades/{id}` | Retorna um ramo de atividade pelo ID |
-| GET    | `/api/ramoatividades/pesquisar?descricao=descicao` | Pesquisa ramos por descrição |
+| GET    | `/api/ramoatividades/pesquisar?descricao=descricao` | Pesquisa ramos por descrição |
 | POST   | `/api/ramoatividades/` | Cria um novo ramo de atividade |
 | PUT    | `/api/ramoatividades/{id}` | Atualiza um ramo existente |
 | DELETE | `/api/ramoatividades/{id}` | Remove um ramo de atividade |
 
 > 🧪 A API pode ser testada via ferramentas como **Postman** ou **Insomnia**.
-> 🔐 Obs.: A autenticação e segurança dos endpoints serão  implementadas posteriormente com JWT ou outra estratégia de segurança.
-
+> 🔐 Todos os endpoints (exceto registro e login) requerem autenticação JWT.
 
 ---
 
@@ -89,7 +124,7 @@ A aplicação fornece uma **API RESTful** construída com **Jersey (JAX-RS)** pa
 
 | Camada            | Tecnologia                                  |
 |-------------------|----------------------------------------------|
-| Backend           | Java, JSF, PrimeFaces, JPA, CDI WELD, Jersey     |
+| Backend           | Java, JSF, PrimeFaces, JPA, CDI WELD, Jersey, JWT     |
 | Frontend          | XHTML, PrimeFaces                           |
 | Banco de Dados    | PostgreSQL                                  |
 | Servidor          | Apache Tomcat                               |
@@ -134,6 +169,8 @@ A aplicação fornece uma **API RESTful** construída com **Jersey (JAX-RS)** pa
    GET http://localhost:8080/jsfProject/api/empresas/
    ```
 
+---
+
 ### Estrutura do Projeto
 
 ```
@@ -164,6 +201,7 @@ A aplicação fornece uma **API RESTful** construída com **Jersey (JAX-RS)** pa
 
 - [x] 📊 Dashboard com gráficos e KPIs
 - [x] 🌐 API RESTful com Jersey e JAX-RS
+- [x] 🔐 Autenticação com JWT
 - [ ] 🔍 Filtros avançados de pesquisa
 - [ ] 👥 Gestão de usuários e permissões
 - [ ] 📄 Relatórios em PDF e outros formatos
@@ -193,3 +231,4 @@ Distribuído sob a licença **MIT**.
 ---
 
 Feito com ❤️ e muito café!
+
